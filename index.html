@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
     <link rel="icon" type="image/png" href="/favicon.png" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,17 +20,19 @@
 
     <script type="module" crossorigin src="/assets/index-7p2v2u5a.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-n4fv3nWk.css">
+
   </head>
 
   <body>
 
     <div id="root"></div>
 
-    <!-- Gemini AI -->
+    <!-- Gemini AI 테스트 -->
     <script type="module">
+
       import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
 
-      const genAI = new GoogleGenerativeAI("AIzaSyClQOmCg2fqBoWCoQBhrPWL1Q9ks9bRwkY");
+      const genAI = new GoogleGenerativeAI("여기에_API_KEY");
 
       async function askAI() {
 
@@ -38,13 +41,18 @@
         });
 
         const result = await model.generateContent(
-          "돌봄일지를 보호자에게 전달할 보고서로 요약해줘"
+          "환자 돌봄일지를 보호자에게 전달할 간단한 보고서로 요약해줘"
         );
 
-        console.log(result.response.text());
+        const text = result.response.text();
+
+        console.log("AI 결과:");
+        console.log(text);
+
       }
 
       askAI();
+
     </script>
 
   </body>
