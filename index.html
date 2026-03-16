@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
 
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1">
 
-<link rel="icon" type="image/png" href="/favicon.png"/>
+<link rel="icon" type="image/png" href="/favicon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,29 +15,32 @@
 
 <title>안심케어 - 우리동네 돌봄 서비스</title>
 
-<meta name="description" content="믿을 수 있는 요양보호사를 우리동네에서 찾아보세요. 안심케어는 보호자와 요양보호사를 직접 연결합니다."/>
+<meta name="description" content="믿을 수 있는 요양보호사를 우리동네에서 찾아보세요. 안심케어는 보호자와 요양보호사를 직접 연결합니다.">
 
-<meta property="og:title" content="안심케어 - 우리동네 돌봄 서비스"/>
-<meta property="og:description" content="가까운 요양보호사를 우리동네에서 빠르게 찾아보세요."/>
+<meta property="og:title" content="안심케어 - 우리동네 돌봄 서비스">
+<meta property="og:description" content="가까운 요양보호사를 우리동네에서 빠르게 찾아보세요.">
 
 <script type="module" crossorigin src="/assets/index-7p2v2u5a.js"></script>
 <link rel="stylesheet" crossorigin href="/assets/index-n4fv3nWk.css">
 
 </head>
 
+
 <body>
 
 <div id="root"></div>
+
 
 <script>
 
 async function askAI(){
 
-const apiKey="AIzaSyClQOmCg2fqBoWCoQBhrPWL1Q9ks9bRwkY";
+const apiKey = "AIzaSyClQOmCg2fqBoWCoQBhrPWL1Q9ks9bRwkY";
 
-const res=await fetch(
-"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key="+apiKey,
-{
+const url =
+"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" + apiKey;
+
+const res = await fetch(url,{
 method:"POST",
 headers:{
 "Content-Type":"application/json"
@@ -46,19 +50,18 @@ contents:[
 {
 parts:[
 {
-text:"환자 돌봄일지를 보호자에게 전달할 간단한 보고서로 5문장 이내로 요약해줘."
+text:"환자 돌봄일지를 보호자에게 전달할 간단한 보고서로 요약해줘."
 },
 {
-text:"환자분은 오전 9시에 기상했고 죽 반공기 식사했습니다. 혈압약 10시에 복용. 오후 산책 15분. 통증 없음."
+text:"환자분은 오전 9시에 기상했고 죽 반공기 식사했습니다. 혈압약 10시에 복용했고 오후에 15분 산책했습니다. 특이 통증은 없습니다."
 }
 ]
 }
 ]
 })
-}
-);
+});
 
-const data=await res.json();
+const data = await res.json();
 
 console.log("AI RESULT");
 console.log(data);
@@ -68,6 +71,7 @@ console.log(data);
 askAI();
 
 </script>
+
 
 </body>
 </html>
